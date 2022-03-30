@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title id="title"> APIsMCD 1.0  </title> 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="MCD/JS/NotificationError.js"></script>
+<script src="MCD/JS/InputFile.js"></script>
+<script src="MCD/JS/ControlShowReadFile.js"></script>
+<script src="MCD/JS/FormateOutPut.js"></script>
+<script src="MCD/JS/ReadFile.js"></script>
+<script src="MCD/JS/Generate.js"></script>
+<script src="MCD/JS/ControlCR3.js"></script>
+<script src="MCD/JS/Headers.js"></script>
+<script src="MCD/JS/ControlCHK.js"></script>
+<script src="MCD/JS/ControlChanged.js"></script>
+<script src="MCD/JS/ApiResponses.js"></script>
+<script src="MCD/JS/EngineApi.js"></script>
+<script src="MCD/JS/HttpStatusCode.js"></script>
+<script src="MCD/JS/ApiRequest.js"></script>
+<script src="MCD/JS/ControlHeaders.js"></script>
+<script src="MCD/JS/Munitor.js"></script>
+<script src="MCD/JS/teste.js"></script>
+</head>
+<body> 
+<div class="container">
+<header class="header">
+
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md4">
+            <ul class="nav justify-content-center">
+<li class="nav-item"><a  href="#main" role="button" class="btn btn-link">Ir para o conteúdo</a></li>
+            </div>
+<div class="col-md4">
+
+<li class="nav-item"><a href="APIsMCD.htm" role="button" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Abrir uma nova aba de requisição</a></li>
+</div>
+<div class="col-md4">
+<li class="nav-item"><button onclick="Close();">Fechar</button></li>
+
+  </ul>
+</div>
+</div>
+</div>
+</nav>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h1 style="text-align:center ;">APIsMCD - consumo de apis</h1>
+</div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<p class="text-justify">Faça requisições em apis de forma simples.<br>Valide que para sua api que está sobre seu desenvolvimento, deverá hhabilitar o Cors em sua Api. Caso contrario, poderá ter alguns problemas de crossorigin durante as requisições.</p>
+</div>  
+</div>  
+</div>
+ </header>
+ <span id="main"></span>
+<main>
+    <div class="container">
+<div class="row">
+<div class="col-md-12">
+    <br>
+<h2 class="text-align:center">Importar arquivo de requisição</h2>
+<br>
+<p class="text-primary">Se você tiver um arquivo de requisição do APIsMCD já salvo no seu computador, poderá usar essa área para carregar para o sistema.
+    <br>O sistema irá realizar a leitura e configurar a requisição baseada no seu arquivo de importação.</p>
+<br>
+
+<button type="button" class="btn btn-light" id="btnShowImport" aria-expanded="false" onclick="ActvateImport();">Importar arquivo de requisição <span class="glyphicon-plus" id="icosExpand" aria-hidden="true"></span></button>
+<br>
+
+    <div id="showImport" style="display:none;">
+    
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+    <p class="text-primary">Selecione o arquivo de configuração JSON. Ao carregar o arquivo, basta pressionar o botão (ler arquivo) que o sistema irá validar e configurar a requisição.</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md4">
+    
+
+
+<input type="file"   id="requisitionFile" class="btn btn-primary">
+     
+</div>
+<div class="col-md4">
+<button type="button" class="btn btn-success" onclick="ValidateFile();">Ler arquivo <span class="glyphicon-floppy-save"></span></button>    
+</div>
+<div class="col-md4">
+<button type="button" class="btn btn-default" onclick="ActvateImport();">Fechar <span class="glyphicon-eye-close"></span></button>    
+
+
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="text-primary" id="displayImport" aria-live="polite"></p>
+</div>
+</div>
+    </div>
+
+    </div>
+
+<div class="container">
+<div class=""row">
+<div class=""col-md12">
+<br>
+<h2>Configuração da sua requisição</h2>
+<p id="requisitionText" class="text-justify"></p>Insira abaixo os parametros de sua requisição.</p>
+</div>
+</div>
+</div>
+
+
+
+        <form id="frmRequisition">
+<input type="hidden" id="headerList"> 
+<input type="hidden" id="keyList"> 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md12">
+            <br>
+            <p class="text-primary"  style="text-align:center ;">Parâmetros da requisição</p>   
+            <br>
+                    </div>
+</div>
+
+        <div class="row">
+      <div class="col-md2">
+            
+        <label for="method" id="lblMethod" class="control-label">Selecione o tipo da requisição</label>
+        <select id="method" id="method" onchange="HabilitarBody();"><
+      <option value=1>GET   </option>
+      <option value=2>POST   </option>
+       </select>
+      </div>
+      <div class="col-md4">
+
+      </div>
+      <div class="col-md6">
+
+<label for="url" class="control-label" id="lblUrl" style="text-align:center ;">  URL da API</label>
+<input type="url" id="url" class="form-control">
+        </div>
+        </div>
+<div class="row">
+<div class="col-md4">
+    <br>
+    <label for="authentication" id="lblautentication" class="control-label">Autenticação</label>
+    <input type="checkbox" class="radiogroup" id="authentication" onclick="HabilitarAutenticacao();">
+</div>
+<div class="col-md4">
+    <br>
+    <label for="token" class="control-label" id="lblToken">Token</label>
+    <input type="text" class="form-control" id="token" readonly="true">
+</div>
+<div class="col-md4">
+        <br>
+    <label for="activateHeaders" id="lblHeaders" class="control-label">Inserir headers personalizados</label>
+    <input type="checkbox" class="radiogroup" id="activateHeaders" onclick="ActiveHeader();">
+</div>
+</div>
+</div>
+
+<div id="displayDivHeader" style="display:none ;">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <center><h2>Headers</h2></center>
+                    </div>
+                        </div>
+                        <div class="row">
+<div class="col-md-12">
+    <span id="displayHeaders" aria-live="polite"></span>
+
+
+    <span id="insert"></span>
+</div>
+                        </div>
+</div>
+
+<div    class="container">
+<div class="row">
+    <div class="col-md-4">
+        <button type="button" onclick="HeaderCreat();">Adicionar mais headers <span class="glyphicon-plus"></span></button>
+    </div>        
+        <div class="col-md-4">
+            
+            <button type="button" onclick="Salvar();">Salvar <span class="glyphicon glyphicon-save"></span></button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<div id="displayBody" style="display:none ;">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <center><h2>Body</h2></center>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-12">
+        <label for="body" id="lblBody" class="control-label">Body</label>
+        <textarea name="body" id="body" class="form-control"></textarea>
+    </div>
+</div>
+</div>
+
+</div>
+
+<div class="container">
+    <div class="row">
+<div class="col-md-12">
+    <br>
+    <button type="button" class="btn btn-success" onclick="Request();">Fazer requisição <span class="glyphicon glyphicon-send"></span></button>
+</div>
+    </div>
+    <div class="row">
+<div class="col-md-12">
+    <span id="erros"></span>
+</div>
+
+    </div>
+</div>
+            </for>
+         <br>
+
+
+
+        
+<div id="resultResponse" style="display:block;">
+
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <h2><span id="statusHttpResponse" style="text-align:center ;" aria-live="polite"></span></h2>
+    </div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<br>
+<p id="resultTextResponse" class="text-justify"></p>
+<br>
+<label for="displaySave" class="control-label">Salvar requisição</label>
+<input type="checkbox" class="radiogroup" id="displaySave" onclick="ShowSave();">
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="showSaveFile" style="display: none;">
+<h2>Salvar requisição HTTP</h2>
+<p class="text-primaryy">Dê um nome para sua requisição e clique no botão (OK). Aguarde a criação do arquivo ser realizada e salve o mesmo no seu computador</p>
+<label for="file" class="control-label">Nome do arquivo</label>
+    <input type="text" id="file" class="form-control">
+<button type="button" onclick="SaveRequisition();">OK <span class="glyphicon glyphicon-download"></span></button>
+<span id="feedback" aria-level="polite"></span>
+<span id="linkDown"></span>
+</div>
+    </main>
+    <footer aria-label="rodapé">
+    <a name="footer"></a>
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <h3>Desenvolvido por Marlon Cesar Damasceno</h3>
+    <p class="text-justify">Proibido a modificação do codigo fonte sem mencionar o desenvolvedor.</p>
+    </div>
+    </div>
+    <div class="row"></div>
+    <div class="col-md-12">
+    <h3>Contatos</h3>
+    <a href="tel:+55011985391269" role="button">Ligar para (11) 98539-1269</a>
+    </div>
+    </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12">
+    <p>&copy; 2022 APIsMCD</p>
+    </div>
+    </div>
+    </div>
+    
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</div>
+    </body>
+    </body>
+    </html>
+    
+    
