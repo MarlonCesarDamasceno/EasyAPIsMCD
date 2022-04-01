@@ -66,6 +66,7 @@ else
 
 if(errorCount>0)
 {
+    SoundError();
 displayErros.setAttribute("style", "color:red");
 displayErros.setAttribute("style", "text-align:center");
 displayErros.setAttribute("role", "alert");
@@ -78,8 +79,21 @@ for (countError=0; countError<=arrayErros.length-1; countError++)
 }
 else
 {
+    SoundSendRequisition();
     displayErros.innerHTML="";
-    StartRequisition(uri, selectedMethod, bodyRequest, token, arrayHeaderName, arrayKeyValue);    
+
+if(!StartRequisition(uri, selectedMethod, bodyRequest, token, arrayHeaderName, arrayKeyValue))    
+{
+
+    
+setTimeout(function()
+{
+    
+    GenericError();
+},
+2000);
+}
+
 }
 
 }

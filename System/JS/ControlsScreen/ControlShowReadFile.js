@@ -8,6 +8,7 @@ if(showDivImport.style.display=="none")
     showDivImport.style.display="block";
     btnImport.setAttribute("aria-expanded", "true");
     icos.setAttribute("class", "glyphicon-minus");
+    SoundShowFields();
 }
 else
 {

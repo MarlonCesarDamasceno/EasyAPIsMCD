@@ -11,7 +11,7 @@ if(verifyFile=="")
     {
         displayTextFile.innerHTML="";
     },4000);
-    
+SoundError();    
 }
 else
 {
@@ -40,6 +40,7 @@ ValidateSchema(convertToJsonData);
 else
 {
             displayTextFile.innerHTML="<span style='color:red'>Erro. O arquivo Json não é um arquivo válido.</span>"; 
+            SoundError();
     }
 },3000);
 }
@@ -72,6 +73,7 @@ if(convertToJson.filesSchemas=="APIsMCD1.0.0")
 else
 {
     displayTextFile.innerHTML="<span style='color:red'>Erro! Falha ao validar schemas do arquivo. O mesmo não é um arquivo válido de requisição do APIsMCD.</span>";
+    SoundError();
 }
 },3000);    
 }

@@ -2,6 +2,8 @@ function ReadFileInput(jsonData)
 {
     let displayTextFile=document.getElementById("displayImport");
     displayTextFile.innerHTML="<span  style='color:green'>Arquivo validado e processado com sucesso! Sua requisição está configurada.</span>";
+    SoundReadedFile();
+
     let uri=document.getElementById("url");
 let methodRequisition=document.getElementById("method");
 let tokenAccess=document.getElementById("token");

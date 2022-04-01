@@ -3,6 +3,8 @@
 
 function ResponseApiData(statusHttp, responseText)
 {
+    SoundSuccessRequisition();
+    document.getElementById("statusResponse").value="true";
 let displayResult=document.getElementById("resultResponse");
 let resultHttpStatus=document.getElementById("statusHttpResponse");
 let resultResponseText=document.getElementById("resultTextResponse");

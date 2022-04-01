@@ -14,6 +14,7 @@ displayHeader.innerHTML="campo header ("+cont+") adicionado";
 	{
 		displayHeader.innerHTML="";
 	}, 2000);
+    SoundShowFields();
 }
 
 function salvo()

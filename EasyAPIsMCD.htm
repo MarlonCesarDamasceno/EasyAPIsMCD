@@ -21,6 +21,7 @@
 <script src="System/JS/Engine/EngineApi.js"></script>
 <script src="System/JS/Engine/HttpStatusCode.js"></script>
 <script src="System/JS/Requests/ApiRequest.js"></script>
+<script src="System/JS/Requests/ErrorRequest.js"></script>
 <script src="System/JS/ControlsScreen/ControlHeaders.js"></script>
 
 
@@ -251,6 +252,7 @@
 <div class="container">
     <div class="row">
     <div class="col-md-12">
+        <input type="text" id="statusResponse">
         <h2><span id="statusHttpResponse" style="text-align:center ;" aria-live="polite"></span></h2>
     </div>
 </div>
@@ -258,9 +260,7 @@
 <div class="col-md-12">
 <br>
 <p id="resultTextResponse" class="text-justify"></p>
-<br>
-<label for="displaySave" class="control-label">Salvar requisição</label>
-<input type="checkbox" class="radiogroup" id="displaySave" onclick="ShowSave();">
+
 </div>
 </div>
 </div>
@@ -268,13 +268,39 @@
 </div>
 
 <div id="showSaveFile" style="display: none;">
-<h2>Salvar requisição HTTP</h2>
-<p class="text-primaryy">Dê um nome para sua requisição e clique no botão (OK). Aguarde a criação do arquivo ser realizada e salve o mesmo no seu computador</p>
-<label for="file" class="control-label">Nome do arquivo</label>
-    <input type="text" id="file" class="form-control">
-<button type="button" onclick="SaveRequisition();">OK <span class="glyphicon glyphicon-download"></span></button>
-<span id="feedback" aria-level="polite"></span>
-<span id="linkDown"></span>
+    <br>
+    <label for="displaySave" class="control-label">Salvar requisição</label>
+    <input type="checkbox" class="radiogroup" id="displaySave" onclick="ShowSave();">
+ 
+</div>
+
+<div id="displaySaveRequisition" style="display: none;">
+
+<div class="container">
+<div class="row">
+    <div class="col-md12">
+        <h2 style="text-align:center ;">Salvar requisição HTTP</h2>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md6">
+        
+
+        <label for="file" class="control-label">Nome do arquivo</label>
+            <input type="text" id="file" class="form-control" placeholder="Dê um nome para seu arquivo de requisição e pressione o botão download para baixar o arquivo de configuração e usar posteriormente.">
+            </div>
+            <div class="col-md6">
+                <button type="button" onclick="SaveRequisition();">Download do arquivo de requisição <span class="glyphicon glyphicon-download"></span></button>
+            </div>
+        </div>
+        <div class="row">
+<div class="col-md12">
+    <span id="feedback" aria-level="polite"></span>
+    <span id="linkDown"></span>
+</div>
+        </div>
+    </div>
+
 </div>
     </main>
     <footer aria-label="rodapé">

@@ -6,4 +6,5 @@ function HabilitarAutenticacao()
     tokenField.readOnly=false;
 else
 tokenField.readOnly=true;
+SoundShowFields();
 }

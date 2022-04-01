@@ -8,6 +8,7 @@ if(methodRequisition.options[methodRequisition.selectedIndex].value==2)
 title.innerHTML="(POST) APIsMCD 1.0";
 
 displayBodyRequisition.style.display="block";
+SoundShowFields();
 }
 else
 {
