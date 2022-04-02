@@ -54,7 +54,7 @@ SetHeaders(request, arrayHeaderName,arrayKeyValue);
 
 function SendAuthToken(request, authToken)
 {
-    request.setRequestHeader("Authorization: Bearer", authToken);
+    request.setRequestHeader("Authorization", "Bearer " +authToken);
 }
 
 function SetHeaders(request, headerName, headerValue)
