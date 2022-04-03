@@ -9,7 +9,7 @@ function JsonFormate(jsonData)
     {
         if(jsonData[caractere]=="[" || jsonData[caractere]=="]" || jsonData[caractere]=="{" || jsonData[caractere]=="}" || jsonData[caractere]==",") 
         {
-            responseJson +=jsonData[caractere]+"<br>";
+            responseJson +=jsonData[caractere]+"\n";
             continue;
         }
         else
