@@ -31,13 +31,9 @@ let bodyRequest=bodyRequestUnformated.replace(/(\r\n|\n|\r)/gm, "");
 
 let selectedMethod=methodRequisition.options[methodRequisition.selectedIndex].value;
 
-if(bodyRequest!="")
+if(selectedMethod==2)
 {
     formatedBodyRequisition=bodyRequest;
-}
-else
-{
-    formatedBodyRequisition=JsonFormate(bodyRequestUnformated);
 }
 
 let json='{"filesSchemas": "APIsMCD1.0.0",';
