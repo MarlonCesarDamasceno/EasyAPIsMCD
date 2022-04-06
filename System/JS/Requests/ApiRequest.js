@@ -68,6 +68,7 @@ if(errorCount>0)
 {
     SoundError();
 displayErros.setAttribute("style", "color:red");
+displayErros.setAttribute("class", "textP")
 displayErros.setAttribute("style", "text-align:center");
 displayErros.setAttribute("role", "alert");
 displayErros.innerHTML="Ops, ocorreram uns ou mais erros nos parâmetros da sua requisição.";

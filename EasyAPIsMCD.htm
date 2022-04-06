@@ -7,6 +7,7 @@
 <title id="title"> APIsMCD 1.0  </title> 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="System/JS/teste.js"></script>
 <script src="System/JS/Notifications/Notifications.js"></script>
 <script src="System/JS/Files/InputFile.js"></script>
 <script src="System/JS/ControlsScreen/ControlShowReadFile.js"></script>
@@ -23,10 +24,45 @@
 <script src="System/JS/Requests/ApiRequest.js"></script>
 <script src="System/JS/Requests/ErrorRequest.js"></script>
 <script src="System/JS/ControlsScreen/ControlHeaders.js"></script>
+<style>
+    body{
+        background-color: #000;
+    }
+    p{
+          
+          font-size: 17px;
+          
+    }
 
+    .btns{
+        font-size: 16px;
+        
+    }
+
+    .btnOK  {
+        color: #000;
+        background-color: orange;
+    }
+
+.textP{
+    color: #fff;
+    
+}
+
+.titulo{
+    color: orange;
+}
+
+.labels {
+    color: orange;
+    font-size: 16px;
+}
+ </style>
 
 </head>
 <body> 
+
+    
 <div class="container">
 <header class="header">
 
@@ -35,17 +71,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md4">
-            <ul class="nav justify-content-center">
-<li class="nav-item"><a  href="#main" role="button" class="btn btn-link">Ir para o conteúdo</a></li>
+
+<a  href="#main" role="button" class="btn btn-secondary btns">Ir para o conteúdo</a>
+            
             </div>
 <div class="col-md4">
 
-<li class="nav-item"><a href="APIsMCD.htm" role="button" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Abrir uma nova aba de requisição</a></li>
+<a href="APIsMCD.htm" class="btn btn-dark btns"  role="button" target="_blank" rel="noopener noreferrer">Abrir uma nova aba de requisição</a>
+
 </div>
 <div class="col-md4">
-<li class="nav-item"><button onclick="Close();">Fechar</button></li>
+<button onclick="Close();" class="btn-secondary btns">Fechar</button>
 
-  </ul>
+  
 </div>
 </div>
 </div>
@@ -53,7 +91,7 @@
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-<h1 style="text-align:center ;">APIsMCD - consumo de apis</h1>
+<h1 class="titulo" style="text-align:center ;">APIsMCD - consumo de apis</h1>
 </div>
 </div>
 </div>
@@ -62,7 +100,7 @@
 <div class="row">
 <div class="col-md-12">
 
-<p class="text-primary">Utilize o cliente de requisições de APIs de forma simples e prática.<br>Observação: para apis que estão sendo consumidas localmente, é preciso habilitar o CORS no projeto. Caso contrário, poderá ocorrer problemas de crossorigin ao realizar a requisição.
+<p class="text-default textP">Utilize o cliente de requisições de APIs de forma simples e prática.<br>Observação: para apis que estão sendo consumidas localmente, é preciso habilitar o CORS no projeto. Caso contrário, poderá ocorrer problemas de crossorigin ao realizar a requisição.
  </p>
  
 </div>  
@@ -75,13 +113,13 @@
 <div class="row">
 <div class="col-md-12">
     <br>
-<h2 class="text-align:center">Importar arquivo de requisição</h2>
+<h2 class="titulo">Importar arquivo de requisição</h2>
 <br>
-<p class="text-primary">Se você tiver um arquivo de requisição do APIsMCD já salvo no seu computador, poderá usar essa área para carregar para o sistema.
+<p class="text-default textP">Se você tiver um arquivo de requisição do APIsMCD já salvo no seu computador, poderá usar essa área para carregar para o sistema.
     <br>O sistema irá realizar a leitura e configurar a requisição baseada no seu arquivo de importação.</p>
 <br>
 
-<button type="button" class="btn btn-primary" id="btnShowImport" aria-expanded="false" onclick="ActvateImport();">Importar arquivo de requisição <span class="glyphicon-plus" id="icosExpand" aria-hidden="true"></span></button>
+<button type="button" class="btn btn-default btns btnOK" id="btnShowImport" aria-expanded="false" onclick="ActvateImport();">Importar arquivo de requisição <span class="glyphicon-plus" id="icosExpand" aria-hidden="true"></span></button>
 <br>
 
     <div id="showImport" style="display:none;">
@@ -89,7 +127,7 @@
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-    <p class="text-primary">Selecione o arquivo de configuração JSON. Ao carregar o arquivo, basta pressionar o botão (ler arquivo) que o sistema irá validar e configurar a requisição.</p>
+    <p class="text-default textP">Selecione o arquivo de configuração JSON. Ao carregar o arquivo, basta pressionar o botão (ler arquivo) que o sistema irá validar e configurar a requisição.</p>
 </div>
 </div>
 <div class="row">
@@ -97,21 +135,21 @@
     
 
 
-<input type="file"   id="requisitionFile" class="btn btn-primary">
+<input type="file"   id="requisitionFile" class="btn btn-secondary btns">
      
 </div>
 <div class="col-md4">
-<button type="button" class="btn btn-success" onclick="ValidateFile();">Ler arquivo <span class="glyphicon-floppy-save"></span></button>    
+<button type="button" class="btn btn-default btns btnOK" onclick="ValidateFile();">Ler arquivo <span class="glyphicon-floppy-save"></span></button>    
 </div>
 <div class="col-md4">
-<button type="button" class="btn btn-default" onclick="ActvateImport();">Fechar <span class="glyphicon-eye-close"></span></button>    
+<button type="button" class="btn btn-secondary btns" onclick="ActvateImport();">Fechar <span class="glyphicon-eye-close"></span></button>    
 
 
 </div>
 </div>
 <div class="row">
 <div class="col-md-12">
-<p class="text-primary" id="displayImport" aria-live="polite"></p>
+<p class="text-default textP" id="displayImport" aria-live="polite"></p>
 </div>
 </div>
     </div>
@@ -122,8 +160,9 @@
 <div class=""row">
 <div class=""col-md12">
 <br>
-<h2>Configuração da sua requisição</h2>
-<p id="requisitionText" class="text-justify"></p>Insira abaixo os parametros de sua requisição.</p>
+<h2 class="titulo">Configuração da sua requisição</h2>
+
+
 </div>
 </div>
 </div>
@@ -138,15 +177,15 @@
     <div class="row">
         <div class="col-md12">
             <br>
-            <p class="text-primary"  style="text-align:center ;">Parâmetros da requisição</p>   
+            <p class="text-default textP"  style="text-align:center ;">Parâmetros da requisição</p>   
             <br>
                     </div>
 </div>
 
         <div class="row">
-      <div class="col-md2">
+      <div class="col-md2" style="padding: 20px;">
             
-        <label for="method" id="lblMethod" class="control-label">Selecione o tipo da requisição</label>
+        <label for="method" id="lblMethod" class="control-label labels">Selecione o tipo da requisição</label>
         <select id="method" id="method" onchange="HabilitarBody();"><
       <option value=1>GET   </option>
       <option value=2>POST   </option>
@@ -157,24 +196,24 @@
       </div>
       <div class="col-md6">
 
-<label for="url" class="control-label" id="lblUrl" style="text-align:center ;">  URL da API</label>
+<label for="url" class="control-label labels" id="lblUrl" style="text-align:center ;">  URL da API</label>
 <input type="url" id="url" class="form-control">
         </div>
         </div>
 <div class="row">
-<div class="col-md4">
+<div class="col-md4" style="padding: 20px;">
     <br>
-    <label for="authentication" id="lblautentication" class="control-label">Autenticação</label>
+    <label for="authentication" id="lblautentication" class="control-label labels">Autenticação</label>
     <input type="checkbox" class="radiogroup" id="authentication" onclick="HabilitarAutenticacao();">
 </div>
 <div class="col-md4">
     <br>
-    <label for="token" class="control-label" id="lblToken">Token</label>
+    <label for="token" class="control-label labels" id="lblToken">Token</label>
     <input type="text" class="form-control" id="token" readonly="true">
 </div>
-<div class="col-md4">
+<div class="col-md4" style="padding: 20px;">
         <br>
-    <label for="activateHeaders" id="lblHeaders" class="control-label">Inserir headers personalizados</label>
+    <label for="activateHeaders" id="lblHeaders" class="control-label labels">Inserir headers personalizados</label>
     <input type="checkbox" class="radiogroup" id="activateHeaders" onclick="ActiveHeader();">
 </div>
 </div>
@@ -185,7 +224,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <center><h2>Headers</h2></center>
+            <h2 class="titulo">Headers</h2>
                     </div>
                         </div>
                         <div class="row">
@@ -201,11 +240,11 @@
 <div    class="container">
 <div class="row">
     <div class="col-md-4">
-        <button type="button" onclick="HeaderCreat();">Adicionar mais headers <span class="glyphicon-plus"></span></button>
+        <button type="button" class="btn-secondary btns" onclick="HeaderCreat();">Adicionar mais headers <span class="glyphicon-plus"></span></button>
     </div>        
         <div class="col-md-4">
             
-            <button type="button" onclick="Salvar();">Salvar <span class="glyphicon glyphicon-save"></span></button>
+            <button type="button" class="btn-default btnOK btns" onclick="Salvar();">Salvar <span class="glyphicon glyphicon-save"></span></button>
         </div>
     </div>
 </div>
@@ -217,12 +256,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <center><h2>Body</h2></center>
+            <h2 class="titulo">Body</h2>
         </div>
     </div>
 <div class="row">
     <div class="col-md-12">
-        <label for="body" id="lblBody" class="control-label">Body</label>
+        <label for="body" id="lblBody" class="control-label labels">Body</label>
         <textarea name="body" id="body" class="form-control"></textarea>
     </div>
 </div>
@@ -234,7 +273,7 @@
     <div class="row">
 <div class="col-md-12">
     <br>
-    <button type="button" class="btn btn-success" onclick="Request();">Fazer requisição <span class="glyphicon glyphicon-send"></span></button>
+    <button type="button" class="btn btn-default btnOK btns" onclick="Request();">Fazer requisição <span class="glyphicon glyphicon-send"></span></button>
 </div>
     </div>
     <div class="row">
@@ -255,14 +294,14 @@
 <div class="container">
     <div class="row">
     <div class="col-md-12">
-        <input type="text" id="statusResponse">
-        <h2><span id="statusHttpResponse" style="text-align:center ;" aria-live="polite"></span></h2>
+        <input type="hidden" id="statusResponse">
+        <h2 class="titulo"><span id="statusHttpResponse" style="text-align:center ;" aria-live="polite"></span></h2>
     </div>
 </div>
 <div class="row">
 <div class="col-md-12">
 <br>
-<p id="resultTextResponse" class="text-justify"></p>
+<p id="resultTextResponse" class="text-justify textP"></p>
 
 </div>
 </div>
@@ -272,7 +311,7 @@
 
 <div id="showSaveFile" style="display: none;">
     <br>
-    <label for="displaySave" class="control-label">Salvar requisição</label>
+    <label for="displaySave" class="control-label labels">Salvar requisição</label>
     <input type="checkbox" class="radiogroup" id="displaySave" onclick="ShowSave();">
  
 </div>
@@ -282,18 +321,18 @@
 <div class="container">
 <div class="row">
     <div class="col-md12">
-        <h2 style="text-align:center ;">Salvar requisição HTTP</h2>
+        <h2 class="titulo" style="text-align:center ;">Salvar requisição HTTP</h2>
     </div>
     </div>
     <div class="row">
     <div class="col-md6">
         
 
-        <label for="file" class="control-label">Nome do arquivo</label>
+        <label for="file" class="control-label labels">Nome do arquivo</label>
             <input type="text" id="file" class="form-control" placeholder="Dê um nome para seu arquivo de requisição e pressione o botão download para baixar o arquivo de configuração e usar posteriormente.">
             </div>
             <div class="col-md6">
-                <button type="button" onclick="SaveRequisition();">Download do arquivo de requisição <span class="glyphicon glyphicon-download"></span></button>
+                <button type="button" class="btn-default btnOK btns" onclick="SaveRequisition();">Download do arquivo de requisição <span class="glyphicon glyphicon-download"></span></button>
             </div>
         </div>
         <div class="row">
@@ -311,14 +350,15 @@
     <div class="container">
     <div class="row">
     <div class="col-md-12">
-    <h3>Desenvolvido por Marlon Cesar Damasceno</h3>
-    <p class="text-justify">Proibido a modificação do codigo fonte sem mencionar o desenvolvedor.</p>
+    <h3 class="textP" id="xpeS3mdjskwp023918qmYrt3MklqrwxpshdmcuiowpqZAQW10000090000129">Sistema desenvolvido por Marlon Cesar Damasceno</h3>
+    <p class="text-justify textP">Proibido a modificação do codigo fonte sem mencionar o desenvolvedor.</p>
     </div>
     </div>
     <div class="row"></div>
     <div class="col-md-12">
-    <h3>Contatos</h3>
-    <a href="tel:+55011985391269" role="button">Ligar para (11) 98539-1269</a>
+    <h3 class="titulo">Contatos</h3>
+    <p class="text-default textP">Caso tenha algum problema ao utilizar o sistema ou deseja fazer uma recomendação, envie um e-mail para: marlon.cdamasceno@gmail.com.</p>
+    <p class="text-default textP">Ou <a href="mailto:marlon.cdamasceno@gmail.com?subject=EasyApisMCD">envie  agora utilizando seu cliente de e-mail!</a> </p>
     </div>
     </div>
     </div>
