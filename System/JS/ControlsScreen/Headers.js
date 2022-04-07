@@ -57,26 +57,26 @@ idKeyValue="keyValue"+cont;
 label=document.createElement("label");
 label.setAttribute("for", idHeaderName);
 label.textContent="Nome do header ("+cont+")";
-label.setAttribute("class", "control-label");
+label.setAttribute("class", "control-label labels");
 
 inputHeaderName=document.createElement("input");
 inputHeaderName.setAttribute("type", "text");
 inputHeaderName.setAttribute("name", "headerName");
 inputHeaderName.setAttribute("id",idHeaderName );
-inputHeaderName.setAttribute("class",  "form-control");
+inputHeaderName.setAttribute("class",  "form-control input");
 inputHeaderName.setAttribute("placeholder", "Insira corretamente o nome do header.");
 
 
 labelKeyValue=document.createElement("label");
 labelKeyValue.setAttribute("for", idKeyValue);
 labelKeyValue.textContent="Valor da chave do header ("+cont+")";
-labelKeyValue.setAttribute("class", "control-label");
+labelKeyValue.setAttribute("class", "control-label labels");
 
 inputKeyValue=document.createElement("input");
 inputKeyValue.setAttribute("type", "text");
 inputKeyValue.setAttribute("name", "headerKeyValue");
 inputKeyValue.setAttribute("id", idKeyValue);
-inputKeyValue.setAttribute("class",  "form-control");
+inputKeyValue.setAttribute("class",  "form-control input");
 inputKeyValue.setAttribute("placeholder", "Insira corretamente o valor do header.");
 insertHeaders=document.getElementById("insert");
 insertHeaders.appendChild(label);

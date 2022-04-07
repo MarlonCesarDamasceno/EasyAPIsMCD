@@ -52,10 +52,10 @@ let generateJsonParameters=JSON.stringify(requisitionParameters);
 let generateLink=document.createElement('a');
 generateLink.href='data:application/octet-stream;charset=utf-8,' +json;
 
-generateLink.download=fileName+"_Easy_APIs.json"; 
+generateLink.download=fileName+"_Easy_APIsMCD.json"; 
 
 
 generateLink.click();
 displayFeedback.innerHTML='<p class="text-success">Seu arquivo foi gerado com sucesso e está pronto para ser salvo no seu computador!</p>'; 
-downloadLink.innerHTML=generateLink;
+//downloadLink.innerHTML=generateLink;
 }
